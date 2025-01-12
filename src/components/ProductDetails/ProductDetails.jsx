@@ -67,9 +67,9 @@ export default function ProductDetails() {
 
 return <>
 {productDetails ?( <>
-    <section className="grid grid-cols-12 gap-12 py-5">
+    <section className="grid grid-cols-1 sm:grid-cols-12 gap-12 py-5">
 
-<div className="image col-span-3">
+<div className="image col-span-3 px-4 justify-centers items-center sm:col-span-3">
     <ReactImageGallery
     showFullscreenButton={false}
     showPlayButton={false}
@@ -83,7 +83,7 @@ return <>
     })}/>
 </div>
 
-<div className="details col-span-9">
+<div className="details col-span-3 px-4 sm:col-span-9">
     <h2 className="text-gray-600 font-semibold text-2xl">{productDetails.title}</h2>
     <h3 className="text-primary-600 font-semibold">{productDetails.category.name}</h3>
     <p className="py-4 text-gray-500">{productDetails.description}
@@ -98,14 +98,15 @@ return <>
     </div>
     <button
     onClick={()=>{addProductToCart({productId: id})}}
-    className="bg-primary-600 font-semibold btn w-full">Add To Cart</button>
+    className="bg-primary-600 font-semibold btn w-full sm:w-auto">Add To Cart</button>
 
 </div>
 </section>
 
 <section>
     <h2 className="pb-5 text-2xl font-semibold text-center text-gray-600">Related Products</h2>
-{relatedProducts ? <Swiper autoplay={true} loop={true} slidesPerView={6}>
+{relatedProducts ? 
+<Swiper autoplay={true} loop={true} slidesPerView={6}>
     {relatedProducts.map((product)=> <SwiperSlide key={product.id}>
         <div className='px-2'>
         <Card productInfo={product}/>

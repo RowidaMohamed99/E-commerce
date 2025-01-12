@@ -13,12 +13,12 @@ export default function Navbar() {
 
   return <>
   <nav className="bg-slate-100 shadow-lg fixed left-0 top-0 right-0 z-50">
-    <div className="container flex gap-12 py-3 ">
+    <div className="container flex justify-between items-center gap-12 py-3 ">
       <a href="">
-        <img src={carticon} alt="freshCart logo" />
+        <img src={carticon} alt="freshCart logo" className='w-28' />
       </a>
       {token && (<> 
-      <ul className="items-center gap-5 md:flex md:flex-row xl:flex lg:flex-row justify-between flex-col sm:hidden">
+      <ul className="items-center flex gap-5 md:flex-row xl:flex lg:flex-row justify-between flex-col sm:hidden">
         <li>
           <NavLink className={({isActive})=>{
             return`relative before:absolute before:w-0 before:-bottom-1 before:left-0  before:h-0.5 before:bg-primary-800 hover:before:w-full hover:font-semibold hover:transition-[width] before:duration-300
