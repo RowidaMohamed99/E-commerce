@@ -5,6 +5,8 @@ import HomeSlider from "../../components/HomeSlider/HomeSlider";
 import CategorySlider from "../../components/CategorySlider/CategorySlider";
 import axios from "axios";
 import Card from "../../components/Card/Card"
+import { Helmet } from 'react-helmet';
+
 
 
 export default function Home() {
@@ -22,6 +24,9 @@ export default function Home() {
     getProducts()
   }, [])
   return <>
+   <Helmet>
+        <title> home page</title>
+      </Helmet>
   <HomeSlider/>
   <CategorySlider/>
   {!products? <Loading/> : <div className="gap-4 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4">

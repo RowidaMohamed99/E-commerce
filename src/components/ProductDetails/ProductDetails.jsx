@@ -8,6 +8,8 @@ import ReactImageGallery from 'react-image-gallery';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Card from './../Card/Card';
 import 'swiper/css';
+import { Helmet } from 'react-helmet';
+
 
 
 
@@ -66,7 +68,13 @@ export default function ProductDetails() {
     
 
 return <>
+<Helmet>
+        <title>Product details</title>
+    </Helmet>
 {productDetails ?( <>
+<Helmet>
+    <title>{productDetails.title}</title>
+</Helmet>
     <section className="grid grid-cols-1 sm:grid-cols-12 gap-12 py-5">
 
 <div className="image col-span-3 px-4 justify-centers items-center sm:col-span-3">
@@ -105,16 +113,25 @@ return <>
 
 <section>
     <h2 className="pb-5 text-2xl font-semibold text-center text-gray-600">Related Products</h2>
-{relatedProducts ? 
-<Swiper autoplay={true} loop={true} slidesPerView={6}>
+{relatedProducts ? <>
+                            <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 ">
+                                {relatedProducts.map((e) =>
+                                    <Card productInfo={e} key={e._id} />
+                                )}
+                            </div>
+                        </>
+ : <Loading/> }
+</section>
+
+
+
+</>) : <Loading/>}
+{/* <Swiper autoplay={true} loop={true} slidesPerView={6}>
     {relatedProducts.map((product)=> <SwiperSlide key={product.id}>
         <div className='px-2'>
         <Card productInfo={product}/>
         </div>
     </SwiperSlide>)}
-</Swiper> : <Loading/> }
-</section>
-</>) : <Loading/>}
-
+</Swiper> */}
 </>
 }

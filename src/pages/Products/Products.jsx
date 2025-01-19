@@ -3,6 +3,8 @@ import Loading from "../../components/Loading/Loading"
 import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
+import { Helmet } from 'react-helmet';
+
 
 
 export default function Products() {
@@ -23,6 +25,9 @@ useEffect (()=>{
 
 
 return <>
+<Helmet>
+        <title>Products</title>
+    </Helmet>
 {!products? <Loading/> : <div className="gap-4 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4">
     {products.map((product)=> <Card productInfo={product} key={product.id}/>)}
     </div>}

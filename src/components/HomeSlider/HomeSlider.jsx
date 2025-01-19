@@ -10,7 +10,7 @@ import 'swiper/css';
 export default function HomeSlider() {
 return <>
 <section className="grid grid-cols-12 m-8">
-    <div className="col-span-8">
+    <div className="xl:col-span-8 col-span-12 md:col-span-8 h-full">
         <Swiper loop={true}>
             <SwiperSlide>
             <img className="w-full h-full object-cover" src={img1} alt="" />
@@ -21,7 +21,7 @@ return <>
         </Swiper>
         
     </div>
-    <div className="col-span-4">
+    <div className="xl:col-span-4 col-span-12 md:col-span-4">
         <img src={img2} alt="" className="w-full" />
         <img src={img3} alt="" className="w-full" />
     </div>

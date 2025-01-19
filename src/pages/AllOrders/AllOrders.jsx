@@ -4,6 +4,8 @@ import { jwtDecode } from "jwt-decode";
 import axios from "axios";
 import Loading from './../../components/Loading/Loading';
 import { Link } from "react-router-dom";
+import { Helmet } from 'react-helmet';
+
 
 export default function AllOrders() {
     const {token} = useContext(UserContext)
@@ -29,6 +31,9 @@ export default function AllOrders() {
     }, [])
     
 return <>
+    <Helmet>
+        <title>Orders</title>
+    </Helmet>
 {orders? <section className="space-y-4">
     {orders.map ((order)=> <div key= {order.id} className="p-4 border-2 border-gray-500 border-opacity-25 rounded-lg">
         <header className="flex items-center justify-between">

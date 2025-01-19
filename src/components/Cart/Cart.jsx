@@ -3,6 +3,7 @@ import { CartContext } from '../../Context/Cart.context'
 import Loading from '../Loading/Loading'
 import Carditem from './../Cartitem/Carditem';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 export default function Cart() {
   let {getCartProduct, cartInfo, clearCart} = useContext(CartContext)
@@ -11,6 +12,9 @@ useEffect (()=>{
   getCartProduct()}, [])
 
   return <>
+  <Helmet>
+        <title>Cart page</title>
+      </Helmet>
   {cartInfo == null? (<Loading/>) :(
   <section>
     <div className="flex gap-8 items-center mt-4">

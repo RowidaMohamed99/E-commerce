@@ -32,7 +32,7 @@ return <>
         <div className="h-64">
         <img className="w-full h-full object-cover" src={category.image} alt="" />
         </div>
-        <h3 className='my-3 font-semibold'>{category.name}</h3>
+        <h5 className='my-3 text-sm font-semibold'>{category.name}</h5>
     </SwiperSlide>)}
 </Swiper>)}
 </section>
